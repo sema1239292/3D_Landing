@@ -1,7 +1,10 @@
 import { motion } from 'motion/react'
 import { FadeInUp } from './ScrollAnimations'
 
-export default function HeroSection() {
+export default function HeroSection({ onOpenModal }) {
+  const scrollToWorks = () => {
+    document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <section className="relative h-screen flex flex-col items-center justify-center px-4">
       <div className="text-center max-w-5xl">
@@ -33,6 +36,7 @@ export default function HeroSection() {
         <FadeInUp delay={0.45}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
             <motion.button
+              onClick={onOpenModal}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="neon-button px-8 py-4 font-semibold rounded-full text-lg min-h-[48px]"
@@ -40,6 +44,7 @@ export default function HeroSection() {
               Start a Project
             </motion.button>
             <motion.button
+              onClick={scrollToWorks}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 border border-white/20 hover:border-purple-400/50 text-gray-300 hover:text-white font-medium rounded-full text-lg transition-all min-h-[48px]"

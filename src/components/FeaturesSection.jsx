@@ -36,7 +36,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="relative py-32 px-4 md:px-6">
+    <section id="works" className="relative py-32 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <FadeInUp>
           <p className="text-sm uppercase tracking-[0.3em] text-purple-400/80 text-center mb-3">
