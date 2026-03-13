@@ -2,10 +2,8 @@ import { motion } from 'motion/react'
 import { FadeInUp } from './ScrollAnimations'
 
 const socials = [
-  { name: 'GitHub', href: '#' },
-  { name: 'Twitter', href: '#' },
-  { name: 'LinkedIn', href: '#' },
-  { name: 'Dribbble', href: '#' },
+  { name: 'Telegram', href: 'https://t.me/flexloll' },
+  { name: 'GitHub', href: 'https://github.com/sema1239292' },
 ]
 
 export default function ContactSection() {
@@ -29,11 +27,11 @@ export default function ContactSection() {
 
         <FadeInUp delay={0.2}>
           <motion.a
-            href="mailto:hello@example.com"
+            href="mailto:semen.rubssss@gmail.com"
             whileHover={{ scale: 1.03 }}
             className="inline-block text-2xl md:text-4xl font-bold bg-gradient-to-r from-purple-300 to-fuchsia-400 bg-clip-text text-transparent"
           >
-            hello@example.com
+            semen.rubssss@gmail.com
           </motion.a>
         </FadeInUp>
 
@@ -43,6 +41,8 @@ export default function ContactSection() {
               <motion.a
                 key={social.name}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, borderColor: 'rgba(139, 92, 246, 0.5)' }}
                 className="px-5 py-2.5 rounded-full border border-white/10 text-sm text-gray-400 hover:text-white transition-colors"
               >

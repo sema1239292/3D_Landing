@@ -3,6 +3,7 @@ import Scene3D from './components/Scene3D'
 import HeroSection from './components/HeroSection'
 import ContactModal from './components/ContactModal'
 import TelegramFloatingButton from './components/TelegramFloatingButton'
+import BackToTop from './components/BackToTop'
 
 const FeaturesSection = lazy(() => import('./components/FeaturesSection'))
 const ContactSection = lazy(() => import('./components/ContactSection'))
@@ -24,6 +25,7 @@ export default function App() {
       </main>
       <ContactModal isOpen={modalOpen} onClose={closeModal} />
       <TelegramFloatingButton />
+      <BackToTop />
     </div>
   )
 }
