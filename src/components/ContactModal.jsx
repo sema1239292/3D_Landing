@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 
-const EMAIL = 'YOUR_EMAIL@example.com'
+const EMAIL = 'semen.rubssss@gmail.com'
 
 export default function ContactModal({ isOpen, onClose }) {
   const overlayRef = useRef()
@@ -99,7 +99,7 @@ export default function ContactModal({ isOpen, onClose }) {
             </form>
 
             <p className="text-gray-600 text-xs text-center mt-4">
-              Or reach us on Telegram: <span className="text-purple-400">@YOUR_TG</span>
+              Or reach us on Telegram: <span className="text-purple-400">@flexloll</span>
             </p>
           </motion.div>
         </motion.div>
