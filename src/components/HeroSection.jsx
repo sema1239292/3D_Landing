@@ -15,7 +15,7 @@ export default function HeroSection({ onOpenModal }) {
               Available for freelance projects
             </span>
           </div>
-          <p className="text-sm md:text-base uppercase tracking-[0.3em] text-purple-400/80 mb-6 font-medium">
+          <p className="text-sm md:text-base uppercase tracking-[0.3em] text-purple-300 mb-6 font-semibold">
             Digital Experience Studio
           </p>
         </FadeInUp>
@@ -33,7 +33,7 @@ export default function HeroSection({ onOpenModal }) {
         </FadeInUp>
 
         <FadeInUp delay={0.3}>
-          <p className="mt-8 text-base md:text-lg text-gray-400 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-8 text-base md:text-lg text-gray-200 max-w-xl mx-auto leading-relaxed">
             Crafting immersive digital experiences through the fusion
             of 3D design, motion, and cutting-edge technology.
           </p>
@@ -67,7 +67,7 @@ export default function HeroSection({ onOpenModal }) {
         animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{ opacity: { delay: 1 }, y: { repeat: Infinity, duration: 2, ease: 'easeInOut' } }}
       >
-        <span className="text-xs uppercase tracking-widest text-gray-500">Scroll</span>
+        <span className="text-xs uppercase tracking-widest text-gray-300">Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-purple-500/50 to-transparent" />
       </motion.div>
     </section>

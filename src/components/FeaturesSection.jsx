@@ -39,7 +39,7 @@ export default function FeaturesSection() {
     <section id="works" className="relative py-32 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <FadeInUp>
-          <p className="text-sm uppercase tracking-[0.3em] text-purple-400/80 text-center mb-3">
+          <p className="text-sm uppercase tracking-[0.3em] text-purple-300 text-center mb-3 font-semibold">
             Services
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">

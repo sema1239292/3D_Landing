@@ -6,7 +6,7 @@ export default function ContactSection() {
     <section className="relative py-32 px-4 md:px-6 flex items-center min-h-screen">
       <div className="max-w-4xl mx-auto text-center w-full">
         <FadeInUp>
-          <p className="text-sm uppercase tracking-[0.3em] text-purple-400/80 mb-3">
+          <p className="text-sm uppercase tracking-[0.3em] text-purple-300 mb-3 font-semibold">
             Contact
           </p>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -15,7 +15,7 @@ export default function ContactSection() {
               {' '}Something Great
             </span>
           </h2>
-          <p className="text-gray-500 text-lg mb-12 max-w-md mx-auto">
+          <p className="text-gray-300 text-lg mb-12 max-w-md mx-auto">
             Ready to elevate your digital presence? Let&apos;s talk.
           </p>
         </FadeInUp>
