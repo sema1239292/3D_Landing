@@ -2,6 +2,7 @@ import { lazy, Suspense, useState, useCallback } from 'react'
 import Scene3D from './components/Scene3D'
 import HeroSection from './components/HeroSection'
 import ContactModal from './components/ContactModal'
+import TelegramFloatingButton from './components/TelegramFloatingButton'
 
 const FeaturesSection = lazy(() => import('./components/FeaturesSection'))
 const ContactSection = lazy(() => import('./components/ContactSection'))
@@ -22,6 +23,7 @@ export default function App() {
         </Suspense>
       </main>
       <ContactModal isOpen={modalOpen} onClose={closeModal} />
+      <TelegramFloatingButton />
     </div>
   )
 }

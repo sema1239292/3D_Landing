@@ -9,6 +9,12 @@ export default function HeroSection({ onOpenModal }) {
     <section className="relative h-screen flex flex-col items-center justify-center px-4">
       <div className="text-center max-w-5xl">
         <FadeInUp>
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-xs md:text-sm text-green-400/90 font-medium tracking-wide">
+              Available for freelance projects
+            </span>
+          </div>
           <p className="text-sm md:text-base uppercase tracking-[0.3em] text-purple-400/80 mb-6 font-medium">
             Digital Experience Studio
           </p>
