@@ -40,6 +40,18 @@
     box-shadow: 0 0 30px rgba(139, 92, 246, 0.08);
   }
 
+  .neon-card-solid {
+    background: rgba(10, 10, 25, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+  }
+
+  .neon-card-solid:hover {
+    background: rgba(15, 10, 40, 0.9);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+  }
+
   .modal-input {
     width: 100%;
     padding: 0.75rem 1rem;

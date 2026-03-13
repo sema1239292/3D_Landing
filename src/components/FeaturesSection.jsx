@@ -52,15 +52,15 @@ export default function FeaturesSection() {
             <FadeInUp key={feature.num} delay={index * 0.08}>
               <motion.div
                 whileHover={{ borderColor: 'rgba(139, 92, 246, 0.4)' }}
-                className="neon-card group rounded-2xl p-8 h-full transition-all duration-300"
+                className="neon-card-solid group rounded-2xl p-8 h-full transition-all duration-300"
               >
-                <span className="text-3xl font-bold text-purple-500/30 group-hover:text-purple-400/60 transition-colors">
+                <span className="text-3xl font-bold text-purple-500/40 group-hover:text-purple-400/70 transition-colors">
                   {feature.num}
                 </span>
-                <h3 className="text-lg font-semibold mt-4 mb-3 text-white">
+                <h3 className="text-lg font-bold mt-4 mb-3 text-white">
                   {feature.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
