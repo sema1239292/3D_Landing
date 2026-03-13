@@ -1,14 +1,14 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-
-const EMAIL = 'semen.rubssss@gmail.com'
 
 export default function ContactModal({ isOpen, onClose }) {
   const overlayRef = useRef()
   const nameRef = useRef()
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   useEffect(() => {
     if (!isOpen) return
+    setStatus('idle')
     nameRef.current?.focus()
     const handleKey = (e) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handleKey)
@@ -19,15 +19,19 @@ export default function ContactModal({ isOpen, onClose }) {
     if (e.target === overlayRef.current) onClose()
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const fd = new FormData(e.target)
-    const name = fd.get('name')
-    const email = fd.get('email')
-    const message = fd.get('message')
-    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${encodeURIComponent(message)}`
-    window.open(`mailto:${EMAIL}?subject=Project%20Inquiry%20from%20${encodeURIComponent(name)}&body=${body}`)
-    onClose()
+    setStatus('sending')
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(e.target)).toString(),
+      })
+      setStatus(res.ok ? 'sent' : 'error')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -62,41 +66,52 @@ export default function ContactModal({ isOpen, onClose }) {
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} name="contact" data-netlify="true" className="space-y-4">
-              <input type="hidden" name="form-name" value="contact" />
-              <input
-                ref={nameRef}
-                name="name"
-                required
-                placeholder="Your name"
-                aria-label="Your name"
-                className="modal-input"
-              />
-              <input
-                name="email"
-                type="email"
-                required
-                placeholder="Email"
-                aria-label="Email"
-                className="modal-input"
-              />
-              <textarea
-                name="message"
-                required
-                rows={4}
-                placeholder="Tell us about your project..."
-                aria-label="Message"
-                className="modal-input resize-none"
-              />
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="neon-button w-full py-3 rounded-full font-semibold text-base"
-              >
-                Send Message
-              </motion.button>
-            </form>
+            {status === 'sent' ? (
+              <div className="text-center py-8">
+                <p className="text-green-400 text-lg font-semibold mb-2">Message sent!</p>
+                <p className="text-gray-500 text-sm">We&apos;ll get back to you soon.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} name="contact" className="space-y-4">
+                <input type="hidden" name="form-name" value="contact" />
+                <input
+                  ref={nameRef}
+                  name="name"
+                  required
+                  placeholder="Your name"
+                  aria-label="Your name"
+                  className="modal-input"
+                />
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Email"
+                  aria-label="Email"
+                  className="modal-input"
+                />
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  placeholder="Tell us about your project..."
+                  aria-label="Message"
+                  className="modal-input resize-none"
+                />
+                <motion.button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="neon-button w-full py-3 rounded-full font-semibold text-base disabled:opacity-50"
+                >
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
+                </motion.button>
+                {status === 'error' && (
+                  <p className="text-red-400 text-sm text-center">Something went wrong. Try again.</p>
+                )}
+              </form>
+            )}
 
             <p className="text-gray-600 text-xs text-center mt-4">
               Or reach us on Telegram: <span className="text-purple-400">@flexloll</span>
