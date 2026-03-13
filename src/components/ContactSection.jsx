@@ -1,54 +1,61 @@
 import { motion } from 'motion/react'
-import { FadeInUp, SlideInLeft } from './ScrollAnimations'
+import { FadeInUp } from './ScrollAnimations'
 
 const socials = [
-  { name: 'GitHub', href: '#', icon: 'GH' },
-  { name: 'Twitter', href: '#', icon: 'TW' },
-  { name: 'LinkedIn', href: '#', icon: 'LI' },
-  { name: 'Dribbble', href: '#', icon: 'DR' },
+  { name: 'GitHub', href: '#' },
+  { name: 'Twitter', href: '#' },
+  { name: 'LinkedIn', href: '#' },
+  { name: 'Dribbble', href: '#' },
 ]
 
 export default function ContactSection() {
   return (
-    <section className="relative min-h-screen py-24 px-4 md:px-6 flex items-center">
+    <section className="relative py-32 px-4 md:px-6 flex items-center min-h-screen">
       <div className="max-w-4xl mx-auto text-center w-full">
         <FadeInUp>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Let&apos;s Work Together
+          <p className="text-sm uppercase tracking-[0.3em] text-purple-400/80 mb-3">
+            Contact
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Let&apos;s Create
+            <span className="bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+              {' '}Something Great
+            </span>
           </h2>
-          <p className="text-gray-400 text-lg mb-12 max-w-xl mx-auto">
-            Ready to bring your vision to life? Get in touch and let&apos;s
-            create something extraordinary.
+          <p className="text-gray-500 text-lg mb-12 max-w-md mx-auto">
+            Ready to elevate your digital presence? Let&apos;s talk.
           </p>
         </FadeInUp>
 
-        <SlideInLeft delay={0.2}>
-          <a
+        <FadeInUp delay={0.2}>
+          <motion.a
             href="mailto:hello@example.com"
-            className="inline-block text-2xl md:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent hover:from-indigo-300 hover:to-purple-300 transition-all"
+            whileHover={{ scale: 1.03 }}
+            className="inline-block text-2xl md:text-4xl font-bold bg-gradient-to-r from-purple-300 to-fuchsia-400 bg-clip-text text-transparent"
           >
             hello@example.com
-          </a>
-        </SlideInLeft>
+          </motion.a>
+        </FadeInUp>
 
-        <FadeInUp delay={0.4}>
-          <div className="flex justify-center gap-6 mt-12">
+        <FadeInUp delay={0.35}>
+          <div className="flex justify-center gap-4 mt-14">
             {socials.map((social) => (
               <motion.a
                 key={social.name}
                 href={social.href}
-                whileHover={{ scale: 1.1, color: '#818cf8' }}
-                className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm font-bold text-gray-400 hover:border-indigo-400 transition-colors"
+                whileHover={{ scale: 1.1, borderColor: 'rgba(139, 92, 246, 0.5)' }}
+                className="px-5 py-2.5 rounded-full border border-white/10 text-sm text-gray-400 hover:text-white transition-colors"
               >
-                {social.icon}
+                {social.name}
               </motion.a>
             ))}
           </div>
         </FadeInUp>
 
-        <FadeInUp delay={0.6} className="mt-20">
-          <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Creative Studio. All rights reserved.
+        <FadeInUp delay={0.5} className="mt-24">
+          <div className="w-16 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent mx-auto mb-6" />
+          <p className="text-gray-600 text-sm">
+            &copy; {new Date().getFullYear()} Studio. All rights reserved.
           </p>
         </FadeInUp>
       </div>
